@@ -1,5 +1,5 @@
 {
-  "name": "text-middle-ellipsis",
+  "name": "middle-ellipsis",
   "version": "0.0.1",
   "description": "Provides a function to truncate text in the middle with an ellipsis",
   "main": "./dist/index.js",
@@ -7,6 +7,10 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LalitSinghRana/text-middle-ellipsis.git"
   },
   "keywords": [
     "text",
@@ -21,6 +25,8 @@
   "author": "Lalit Rana",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },

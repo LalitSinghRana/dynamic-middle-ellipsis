@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-      "strict": true,
-      "noImplicitAny": true,
+			"jsx": "react",
+      "strict": false,
+      "noImplicitAny": false,
       "esModuleInterop": true,
       "strictNullChecks": true,
       "target": "ES2022",
