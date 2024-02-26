@@ -130,7 +130,7 @@ const widthMap: any = {
 	"�": 16.25,
 };
 
-const getCharacterWidth = (character: any, fontSize: any = 16) => {
+const getCharacterWidth = (character: string, fontSize = 16) => {
 	// If character is not present in widthMap, return width of 'W' character (widest character)
 	if (!widthMap[character]) return widthMap.W * (fontSize / 16);
 	return widthMap[character] * (fontSize / 16);

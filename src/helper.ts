@@ -1,27 +1,41 @@
 import React from "react";
-import getCharacterWidth from "./width-mapping";
+import { fontFamilyWidthMap } from "./fontFamilyWidthMap";
 
-const getElementSizes = (element: Element) => {
-	const nodeStyleObj = window.getComputedStyle(element);
+const getCharacterWidth = (
+	character: string,
+	fontSize = 16, // TODO: Figure out a way to not have this pass around every instance
+	fontFamily: string, // TODO: Figure out a way to not have this pass around every instance
+) => {
+	const widthMap = fontFamilyWidthMap[fontFamily];
+
+	// If character is not present in widthMap, return width of 'W' character (widest character)
+	const characterWidth = widthMap[character] || widthMap.W;
+
+	return characterWidth * (fontSize / 16) * 1; // 2px for 'normal' letter spacing
+};
+
+const getElementCssProperties = (element: Element) => {
+	const elementStyleObj = window.getComputedStyle(element);
 
 	const paddingWidthX =
-		parseInt(nodeStyleObj.paddingLeft, 10) +
-		parseInt(nodeStyleObj.paddingRight, 10);
+		parseInt(elementStyleObj.paddingLeft, 10) +
+		parseInt(elementStyleObj.paddingRight, 10);
 	const paddingWidthY =
-		parseInt(nodeStyleObj.paddingTop, 10) +
-		parseInt(nodeStyleObj.paddingBottom, 10);
+		parseInt(elementStyleObj.paddingTop, 10) +
+		parseInt(elementStyleObj.paddingBottom, 10);
 	const marginWidthX =
-		parseInt(nodeStyleObj.marginLeft, 10) +
-		parseInt(nodeStyleObj.marginRight, 10);
+		parseInt(elementStyleObj.marginLeft, 10) +
+		parseInt(elementStyleObj.marginRight, 10);
 	const borderWidthX =
-		parseInt(nodeStyleObj.borderLeftWidth, 10) +
-		parseInt(nodeStyleObj.borderRightWidth, 10);
+		parseInt(elementStyleObj.borderLeftWidth, 10) +
+		parseInt(elementStyleObj.borderRightWidth, 10);
 
 	// `nodeStyleObj.width` return width that includes padding. So we have to subtract padding to get available width.
-	const width = parseInt(nodeStyleObj.width, 10) - paddingWidthX;
-	const height = parseInt(nodeStyleObj.height, 10) - paddingWidthY;
+	const width = parseInt(elementStyleObj.width, 10) - paddingWidthX;
+	const height = parseInt(elementStyleObj.height, 10) - paddingWidthY;
 
-	const fontSize = parseInt(nodeStyleObj.fontSize, 10);
+	const fontSize = parseInt(elementStyleObj.fontSize, 10);
+	const fontFamily = elementStyleObj.fontFamily.split(",")[0];
 
 	return {
 		width,
@@ -30,14 +44,15 @@ const getElementSizes = (element: Element) => {
 		marginWidthX,
 		borderWidthX,
 		fontSize,
+		fontFamily,
 	};
 };
 
-const getStringWidth = (text: string, fontSize: number) => {
+const getStringWidth = (text: string, fontSize: number, fontFamily: string) => {
 	let width = 0;
 
 	for (const c of text) {
-		width += getCharacterWidth(c, fontSize);
+		width += getCharacterWidth(c, fontSize, fontFamily);
 	}
 
 	return width;
@@ -60,10 +75,15 @@ export const truncateText = ({
 	*/
 	if (!curEle || !offsetParent) return text;
 
-	const { fontSize } = getElementSizes(curEle);
-	const { width: availableWidth } = getElementSizes(offsetParent);
+	const { fontSize, fontFamily } = getElementCssProperties(curEle);
+	const { width: availableWidth } = getElementCssProperties(offsetParent);
 
-	const maxTextWidth = getStringWidth(text, fontSize);
+	const maxTextWidth = getStringWidth(text, fontSize, fontFamily);
+
+	console.log("LALIT ~ availableWidth:", {
+		availableWidth,
+		calculatedWidth: maxTextWidth,
+	});
 
 	/*
 		If maximum possible text width is less than or equal to available width, 
@@ -72,23 +92,48 @@ export const truncateText = ({
 	*/
 	if (maxTextWidth <= availableWidth) return text;
 
-	const middleEllipsisWidth = getStringWidth(middleEllipsis, fontSize);
+	const middleEllipsisWidth = getStringWidth(
+		middleEllipsis,
+		fontSize,
+		fontFamily,
+	);
+	const emptySpaceWidth = 0;
 	const textCharCount = text.length;
 
-	let remainingWidth = availableWidth - middleEllipsisWidth;
+	let remainingWidth =
+		availableWidth - middleEllipsisWidth - emptySpaceWidth * 2;
 	let firstHalf = "";
 	let secondHalf = "";
+	let firstHalfWidth = 0;
+	let secondHalfWidth = 0;
 
 	for (let i = 0; i < Math.floor(textCharCount / 2); i++) {
-		remainingWidth -= getCharacterWidth(text[i], fontSize);
+		const fhWidth = getCharacterWidth(text[i], fontSize, fontFamily);
+		remainingWidth -= fhWidth;
 
-		if (remainingWidth <= 0) break;
+		if (remainingWidth < 0) break;
 		firstHalf += text[i];
+		firstHalfWidth += fhWidth;
 
-		remainingWidth -= getCharacterWidth(text[textCharCount - i - 1], fontSize);
-		if (remainingWidth <= 0) break;
+		const shWidth = getCharacterWidth(
+			text[textCharCount - i - 1],
+			fontSize,
+			fontFamily,
+		);
+		remainingWidth -= shWidth;
+
+		if (remainingWidth < 0) break;
 		secondHalf = text[textCharCount - i - 1] + secondHalf;
+		secondHalfWidth += shWidth;
 	}
+
+	// console.log("LALIT ~ availableWidth:", {
+	// 	availableWidth,
+	// 	calculatedWidth: firstHalfWidth + middleEllipsisWidth + secondHalfWidth,
+	// 	firstHalfWidth,
+	// 	middleEllipsisWidth,
+	// 	secondHalfWidth,
+	// });
 
 	return firstHalf + middleEllipsis + secondHalf;
 };

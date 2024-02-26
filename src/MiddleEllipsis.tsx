@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { truncateText } from "./helper";
 
-export const MiddleEllipsis = ({
-	children = "",
-	middleEllipsis = "...",
-}) => {
+export const MiddleEllipsis = ({ children = "", middleEllipsis = "..." }) => {
 	const nodeRef = useRef(null);
 	const [centreEllipsisText, setCentreEllipsisText] = useState("");
 
@@ -21,7 +18,7 @@ export const MiddleEllipsis = ({
 	}, [children, middleEllipsis]);
 
 	return (
-		<span ref={nodeRef} style={{ whiteSpace: "nowrap" }}>
+		<span ref={nodeRef} style={{ whiteSpace: "nowrap", outline: "4px solid" }}>
 			{centreEllipsisText}
 		</span>
 	);
