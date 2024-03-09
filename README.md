@@ -1,3 +1,1 @@
-# Say Hello Functions
-
-A list of functions# text-middle-ellipsis
+# Text Middle Ellipsis
