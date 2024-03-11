@@ -3,8 +3,7 @@
   "version": "0.0.5",
   "description": "Provides a function to truncate text in the middle with an ellipsis",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsup"
   },
@@ -32,8 +31,11 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "chalk": "^5.3.0",
     "decompress": "^4.2.1",
     "download": "^8.0.0",
+    "inquirer": "^9.2.15",
+    "nanospinner": "^1.1.0",
     "react": "^18.2.0"
   }
 }

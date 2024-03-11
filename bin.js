@@ -1,61 +1,85 @@
 #!/usr/bin/env node
-const { exec } = require('node:child_process');
-const readline = require('node:readline')
-const download = require('download');
-const decompress = require('decompress');
+
+import Chalk from 'chalk';
+import decompress from 'decompress';
+import download from 'download';
+import inquirer from 'inquirer';
+import { createSpinner } from 'nanospinner';
 
 const packageName = '@lalit-rana/middle-ellipsis-react';
 
-const getFiles = async () => {
-    console.log("Downloading package from npm.js...");
-
-    // Fetch the package data from the npm registry API
-    const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
-    const data = await response.json();
-
-    // Get the tarball URL from the package data
-    const tarballUrl = data.dist.tarball;
-    console.log(`Downloading ${tarballUrl}...`);
-    const compressedData = await download(tarballUrl);
-    
-    // Extract only the files under the src/ folder
-    console.log(`Extracting ${packageName}...`);
-    await decompress(compressedData, './MiddleEllipsis', {
-        filter: file => file.path.startsWith('package/src/'),
-        map: file => {
-            // Remove 'package/src/' from the start of the file path
-            file.path = file.path.replace('package/src/', '');
-            return file;
-        }
-    });
-    console.log(`${packageName} downloaded successfully!`);
-};
-
-const std =readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-console.log(`
-Starting: ${packageName}
-`);
-
-std.question(`You are currently in ${process.cwd()}. 
-Do you want to download here? (y/n) `, (answer) => {
-    if (answer.toLowerCase() !== 'y') {
-        console.log('Aborted by the user.');
-        std.close();
-        process.exit(1);
-    }
-
-    // Continue with the rest of your script...
-    exec('mkdir MiddleEllipsis');
+const getFiles = async (type) => {
+    const spinner = createSpinner('Downloading...:   ');
 
     try {
-        getFiles();
+        spinner.start();
+        // Fetch the package data from the npm registry API
+        const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
+        const data = await response.json();
+        console.log('NPM package registry data fetched');
+
+        // Get the tarball URL from the package data
+        const tarballUrl = data.dist.tarball;
+        const compressedData = await download(tarballUrl);
+        console.log('Tarball file downloaded');
+        
+        // Extract only the files under the src/ folder
+        await decompress(compressedData, './MiddleEllipsis', {
+            filter: file => file.path.startsWith('package/src/'),
+            map: file => {
+                // Remove 'package/src/' from the start of the file path
+                file.path = file.path.replace('package/src/', '');
+                return file;
+            }
+        });
+        console.log('Files extracted successfully!');
+
+        spinner.success({
+            text: Chalk.green(`Download Successful: Middle Ellipsis ${type}`),
+        });
     } catch (error) {
-        console.error(`Error: ${error}`);
+        spinner.error({
+            text: Chalk.red(`Download Fail: ${error.message}`),
+        });
+    }
+};
+
+async function inquireUser() {
+    const directoryInquirer = await inquirer.prompt([
+        {
+            type: 'list',
+            name: 'directory',
+            message: `Create "MiddleEllipsis" in ${process.cwd()}?`,
+            choices: ['Yes', 'No'],
+        },
+    ]);
+
+    if (directoryInquirer.directory === 'No') {
+        console.log(Chalk.bgRed('\nAborted by the user.'));
+        process.exit(0);
     }
 
-    std.close();
-});
+    const libraryInquirer = await inquirer.prompt([
+        {
+            name: 'library',
+            type: 'list',
+            message: 'Which library version code do you want?',
+            default: 'React (TypeScript)',
+            choices: [
+                'React (TypeScript)', 
+                { name: 'React (JavaScript)', disabled: 'Unavailable at this time' },
+                'Vanilla (TypeScript)', 
+                { name: 'Vanilla (JavaScript)', disabled: 'Unavailable at this time' },
+            ],
+        },
+    ]);
+
+    await getFiles(libraryInquirer.library);
+
+}
+
+console.log(Chalk.bgMagenta('Welcome to Middle Ellipsis Downloader!\n'));
+
+await inquireUser();
+
+console.log(Chalk.bgGreen(`\nCode copied into ${process.cwd()}/MiddleEllipsis successfully!`));
