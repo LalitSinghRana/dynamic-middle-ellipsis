@@ -4,11 +4,10 @@ const readline = require('node:readline')
 const download = require('download');
 const decompress = require('decompress');
 
-// The name of your npm package
 const packageName = '@lalit-rana/middle-ellipsis-react';
 
 const getFiles = async () => {
-    console.log(`Downloading ${packageName} from npm.js...`);
+    console.log("Downloading package from npm.js...");
 
     // Fetch the package data from the npm registry API
     const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
@@ -37,14 +36,18 @@ const std =readline.createInterface({
   output: process.stdout
 });
 
-std.question(`
-You are currently in ${process.cwd()}. 
-Do you want to proceed? (y/n) `, (answer) => {
+console.log(`
+Starting: ${packageName}
+`);
+
+std.question(`You are currently in ${process.cwd()}. 
+Do you want to download here? (y/n) `, (answer) => {
     if (answer.toLowerCase() !== 'y') {
         console.log('Aborted by the user.');
         std.close();
         process.exit(1);
     }
+
     // Continue with the rest of your script...
     exec('mkdir MiddleEllipsis');
 
@@ -56,6 +59,3 @@ Do you want to proceed? (y/n) `, (answer) => {
 
     std.close();
 });
-
-
-
