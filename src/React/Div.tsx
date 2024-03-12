@@ -1,4 +1,10 @@
-import React, { ReactNode, createContext, useEffect, useRef, useState } from "react";
+import React, {
+	type ReactNode,
+	createContext,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 
 type MultiEllipsisContainerProps = {
 	children: Iterable<ReactNode>;
