@@ -1,11 +1,16 @@
 {
   "name": "@lalit-rana/middle-ellipsis-react",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": "Provides a function to truncate text in the middle with an ellipsis",
-  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsup"
+    "build": "npm run remove:all && npm run build:all",
+    "update-import-paths": "sed -i 's#../truncate-text#./truncate-text#g' ./dist/**/*.*",
+    "remove:all": "rm -rf dist",
+    "build:all": "mkdir dist && npm run build:React:TS && npm run build:Vanilla:TS && npm run update-import-paths",
+    "build:React:TS": "cp -r src/React dist/React-TS/ & cp -r src/truncate-text/ dist/React-TS//truncate-text",
+    "build:Vanilla:TS": "cp -r src/truncate-text/ dist/Vanilla-TS/",
+    "build:React:JS": "tsup src/* --format cjs --minify --out-dir React"
   },
   "bin": "./bin.js",
   "repository": {

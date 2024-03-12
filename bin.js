@@ -25,10 +25,10 @@ const getFiles = async (type) => {
         
         // Extract only the files under the src/ folder
         await decompress(compressedData, './MiddleEllipsis', {
-            filter: file => file.path.startsWith('package/src/'),
+            filter: file => file.path.startsWith(`package/dist/${type}`),
             map: file => {
                 // Remove 'package/src/' from the start of the file path
-                file.path = file.path.replace('package/src/', '');
+                file.path = file.path.replace(`package/dist/${type}`, '');
                 return file;
             }
         });
@@ -66,16 +66,15 @@ async function inquireUser() {
             message: 'Which library version code do you want?',
             default: 'React (TypeScript)',
             choices: [
-                'React (TypeScript)', 
-                { name: 'React (JavaScript)', disabled: 'Unavailable at this time' },
-                'Vanilla (TypeScript)', 
-                { name: 'Vanilla (JavaScript)', disabled: 'Unavailable at this time' },
+                'React-TS', 
+                { name: 'React-JS', disabled: 'Unavailable at this time' },
+                'Vanilla-TS', 
+                { name: 'Vanilla-JS', disabled: 'Unavailable at this time' },
             ],
         },
     ]);
 
     await getFiles(libraryInquirer.library);
-
 }
 
 console.log(Chalk.bgMagenta('Welcome to Middle Ellipsis Downloader!\n'));
