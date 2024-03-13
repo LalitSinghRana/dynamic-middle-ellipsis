@@ -45,7 +45,8 @@ export const generateFontWidthMapping = () => {
 
 	const fontsMap: FontFamilyMap = {};
 
-	for (const fontFamily of fontFamilies) {
+	for (let fontFamily of fontFamilies) {
+		if (fontFamily[0] === '"' || fontFamily[0] === "'") fontFamily = fontFamily.slice(1, -1);
 		fontsMap[fontFamily] = generateCharacterWidthMapping(fontFamily);
 	}
 

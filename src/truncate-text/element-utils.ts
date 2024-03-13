@@ -2,7 +2,12 @@ export const getElementProperties = (targetElement: Element) => {
 	const style = window.getComputedStyle(targetElement);
 
 	const fontSize = parseFloat(style.fontSize);
-	const fontFamily = style.fontFamily.split(",")[0];
+	let fontFamily = style.fontFamily.split(",")[0];
+	/*
+	- For multiple word font family name, it returns with quotes.
+		- Example: "Times New Roman", "Courier New", etc
+	*/
+	if (fontFamily[0] === '"' || fontFamily[0] === "'") fontFamily = fontFamily.slice(1, -1);
 
 	const marginXWidth =
 		parseFloat(style.marginLeft) + parseFloat(style.marginRight);
