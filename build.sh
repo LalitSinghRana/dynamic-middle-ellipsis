@@ -11,7 +11,8 @@ build_ts() {
 
 build_js() {
   mkdir -p $dir_js
-  cp -r src/* $dir_js
+  npx babel src --out-dir $dir_js --extensions ".ts,.tsx"
+  cp src/* $dir_js
   sed -i 's#../truncate-text#./truncate-text#g' $dir_js/**/*.*
 }
 
