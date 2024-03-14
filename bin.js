@@ -8,7 +8,7 @@ import { createSpinner } from 'nanospinner';
 
 const packageName = '@lalit-rana/middle-ellipsis-react';
 
-const getFiles = async (type) => {
+const getFiles = async ({language, framework}) => {
     const spinner = createSpinner('Downloading...:   ');
 
     try {
@@ -23,19 +23,23 @@ const getFiles = async (type) => {
         const compressedData = await download(tarballUrl);
         console.log('Tarball file downloaded');
         
-        // Extract only the files under the src/ folder
+        // Extract only the files under the 'package/${language}/' folder
         await decompress(compressedData, './MiddleEllipsis', {
-            filter: file => file.path.startsWith(`package/dist/${type}`),
+            filter: file => file.path.startsWith(`package/${language}/${framework}`) 
+            || file.path.startsWith(`package/${language}/truncate-text`) 
+            || (file.path.startsWith(`package/${language}/`) && !file.path.substring(`package/${language}/`.length).includes('/')),
             map: file => {
-                // Remove 'package/src/' from the start of the file path
-                file.path = file.path.replace(`package/dist/${type}`, '');
+                // Remove 'package/${language}/' from the start of the file path
+                file.path = file.path.replace(`package/${language}/${framework}`, '');
+                file.path = file.path.replace(`package/${language}/`, '');
+
                 return file;
             }
         });
         console.log('Files extracted successfully!');
 
         spinner.success({
-            text: Chalk.green(`Download Successful: Middle Ellipsis ${type}`),
+            text: Chalk.green(`Download Successful: Middle Ellipsis ${framework}`),
         });
     } catch (error) {
         spinner.error({
@@ -61,20 +65,31 @@ async function inquireUser() {
 
     const libraryInquirer = await inquirer.prompt([
         {
-            name: 'library',
+            name: 'language',
             type: 'list',
-            message: 'Which library version code do you want?',
-            default: 'React (TypeScript)',
+            message: 'Which language code do you want?',
+            default: 'TypeScript',
             choices: [
-                'React-TS', 
-                { name: 'React-JS', disabled: 'Unavailable at this time' },
-                'Vanilla-TS', 
-                { name: 'Vanilla-JS', disabled: 'Unavailable at this time' },
+                'TypeScript', 
+                'JavaScript', 
+            ],
+        },
+        {
+            name: 'framework',
+            type: 'list',
+            message: 'Which framework version code do you want?',
+            default: 'React',
+            choices: [
+                'React', 
+                'Vanilla',
+                { name: 'Svelte', disabled: 'Unavailable at this time' },
+                { name: 'Vue', disabled: 'Unavailable at this time' },
+                { name: 'Solid', disabled: 'Unavailable at this time' },
             ],
         },
     ]);
 
-    await getFiles(libraryInquirer.library);
+    await getFiles(libraryInquirer);
 }
 
 console.log(Chalk.bgMagenta('Welcome to Middle Ellipsis Downloader!\n'));

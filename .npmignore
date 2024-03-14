@@ -3,5 +3,14 @@
 
 .env
 
+# Source code
+/src
+
+# Build script
+build.sh
+
+# Local test directories
+/MiddleEllipsis
+
 tsconfig.json
-tsup.config.js
+tsup.config.ts

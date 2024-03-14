@@ -1,0 +1,1 @@
+For perfect truncation, you need to generate character width mapping for all the font-family in your project.

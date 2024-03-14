@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { ContainerContext } from "./Div";
-import { truncateOnResize } from "../truncate-text";
+import { truncateOnResize } from "../truncate-text-utils";
 
 type MiddleEllipsisProps = {
 	children: string; // Text to be truncated

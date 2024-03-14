@@ -2,3 +2,10 @@
 /node_modules
 
 .env
+
+# Output/build directories
+/TypeScript
+/JavaScript
+
+# Local test directories
+/MiddleEllipsis
