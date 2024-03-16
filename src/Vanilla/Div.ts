@@ -18,8 +18,8 @@ export class Div extends HTMLElement {
 	}
 
 	render() {
-    if (this.shadowRoot) {
-		  this.shadowRoot.innerHTML = template;
-    }
+		if (this.shadowRoot === null) return;
+
+		this.shadowRoot.innerHTML = template;
 	}
 }

@@ -34,7 +34,7 @@ export const Span = ({
 	}, [children, ellipsisSymbol, boundingElement, lineLimit]);
 
 	return (
-		<span ref={nodeRef} {...rest}>
+		<span ref={nodeRef} {...rest} style={{ wordBreak: "break-all" }}>
 			{"\u00A0"}
 		</span>
 	);

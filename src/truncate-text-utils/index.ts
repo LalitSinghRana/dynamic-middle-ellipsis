@@ -30,7 +30,10 @@ const truncateText = ({
 		? getAvailableWidthWhenSharing(targetElement, boundingElement)
 		: getAvailableWidth(targetElement);
 
-	if (lineLimit > 1) availableWidth *= lineLimit - 0.3;
+	if (lineLimit > 1) {
+		availableWidth =
+			availableWidth * lineLimit - getCharacterWidth("W", fontFamily, fontSize);
+	}
 
 	const maxTextWidth = getStringWidth(originalText, fontSize, fontFamily);
 
