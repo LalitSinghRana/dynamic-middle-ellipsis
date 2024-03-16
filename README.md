@@ -2,7 +2,8 @@
 
 A framework/library agnostic code to dynamically truncate long text in the center.
 
-[![Watch demo video](https://github.com/LalitSinghRana/middle-ellipsis/assets/31415645/0cbb6ded-6a39-42da-a4b1-9647c7529682)]([url-to-video](https://github.com/LalitSinghRana/middle-ellipsis/assets/31415645/3daf5e55-4ec9-49c2-87ed-501eb4fe9d3e))
+![Demo gif](https://github.com/LalitSinghRana/dynamic-middle-ellipsis/assets/31415645/d0f97746-1129-44f0-8cbe-c5c10f477dd6)
+
 
  - Dynamic: Automatically truncate on resize.
  - Font adaptive: Can handle unique fonts family and sizes
@@ -10,4 +11,3 @@ A framework/library agnostic code to dynamically truncate long text in the cente
  - Handle all edge cases, like parent width is dependent on child (circular dependency).
  - Not a package dependency: You don't install this as a package, but rather get the code/logic. Giving you full control over code to modify (if needed) for your unique use case.
 
-![ezgif-1-b9e3d3d74d](https://github.com/LalitSinghRana/dynamic-middle-ellipsis/assets/31415645/52340e14-4928-4994-8d66-f491a51913de)
