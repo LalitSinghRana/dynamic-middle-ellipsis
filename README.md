@@ -1,6 +1,8 @@
 # Dynamic Middle Ellipsis
 
-A framework/library agnostic logic to dynamically truncate long text in the center.
+A framework/library agnostic code to dynamically truncate long text in the center.
+
+https://github.com/LalitSinghRana/middle-ellipsis/assets/31415645/3daf5e55-4ec9-49c2-87ed-501eb4fe9d3e
 
  - Dynamic: Automatically truncate on resize.
  - Font adaptive: Can handle unique fonts family and sizes
