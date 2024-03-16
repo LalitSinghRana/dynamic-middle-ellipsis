@@ -1,10 +1,6 @@
 import { fontFamilyMap } from "./font-family-map";
 
-export const getCharacterWidth = (
-	character: string,
-	fontFamily: string,
-	fontSize = 16,
-) => {
+export const getCharacterWidth = (character: string, fontFamily: string, fontSize = 16) => {
 	const characterWidthMap = fontFamilyMap[fontFamily];
 	if (!characterWidthMap) return 0;
 
@@ -14,11 +10,7 @@ export const getCharacterWidth = (
 	return characterWidth * (fontSize / 16); // scale the width according to fontSize
 };
 
-export const getStringWidth = (
-	originalText: string,
-	fontSize: number,
-	fontFamily: string,
-) => {
+export const getStringWidth = (originalText: string, fontSize: number, fontFamily: string) => {
 	let width = 0;
 
 	for (const c of originalText) {

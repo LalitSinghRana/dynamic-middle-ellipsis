@@ -1,8 +1,4 @@
-import {
-	getAvailableWidth,
-	getAvailableWidthWhenSharing,
-	getElementProperties,
-} from "./element-utils";
+import { getAvailableWidth, getAvailableWidthWhenSharing, getElementProperties } from "./element-utils";
 import { getCharacterWidth, getStringWidth } from "./string-utils";
 
 type ElementOptions = {
@@ -31,8 +27,7 @@ const truncateText = ({
 		: getAvailableWidth(targetElement);
 
 	if (lineLimit > 1) {
-		availableWidth =
-			availableWidth * lineLimit - getCharacterWidth("W", fontFamily, fontSize);
+		availableWidth = availableWidth * lineLimit - getCharacterWidth("W", fontFamily, fontSize);
 	}
 
 	const maxTextWidth = getStringWidth(originalText, fontSize, fontFamily);
@@ -44,11 +39,7 @@ const truncateText = ({
 	*/
 	if (maxTextWidth <= availableWidth) return originalText;
 
-	const middleEllipsisWidth = getStringWidth(
-		ellipsisSymbol,
-		fontSize,
-		fontFamily,
-	);
+	const middleEllipsisWidth = getStringWidth(ellipsisSymbol, fontSize, fontFamily);
 	const textCharCount = originalText.length;
 
 	let remainingWidth = availableWidth - middleEllipsisWidth;
@@ -61,11 +52,7 @@ const truncateText = ({
 		if (remainingWidth < 0) break;
 		firstHalf += originalText[i];
 
-		remainingWidth -= getCharacterWidth(
-			originalText[textCharCount - i - 1],
-			fontFamily,
-			fontSize,
-		);
+		remainingWidth -= getCharacterWidth(originalText[textCharCount - i - 1], fontFamily, fontSize);
 
 		if (remainingWidth < 0) break;
 		secondHalf = originalText[textCharCount - i - 1] + secondHalf;
@@ -91,8 +78,7 @@ export const truncateOnResize = ({
 			targetElement,
 			/* Below checks provide run-time guarantees */
 			originalText: String(originalText),
-			ellipsisSymbol:
-				typeof ellipsisSymbol === "string" ? ellipsisSymbol : "...",
+			ellipsisSymbol: typeof ellipsisSymbol === "string" ? ellipsisSymbol : "...",
 			lineLimit: typeof lineLimit === "number" ? lineLimit : 1,
 		});
 

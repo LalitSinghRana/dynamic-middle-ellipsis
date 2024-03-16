@@ -14,9 +14,7 @@ const getFiles = async ({ language, framework }) => {
 	try {
 		spinner.start();
 		// Fetch the package data from the npm registry API
-		const response = await fetch(
-			`https://registry.npmjs.org/${packageName}/latest`,
-		);
+		const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
 		const data = await response.json();
 		console.log("NPM package registry data fetched");
 
@@ -97,8 +95,4 @@ console.log(Chalk.bgMagenta("Welcome to Middle Ellipsis Downloader!\n"));
 
 await inquireUser();
 
-console.log(
-	Chalk.bgGreen(
-		`\nCode copied into ${process.cwd()}/MiddleEllipsis successfully!`,
-	),
-);
+console.log(Chalk.bgGreen(`\nCode copied into ${process.cwd()}/MiddleEllipsis successfully!`));

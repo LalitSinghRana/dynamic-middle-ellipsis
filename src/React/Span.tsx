@@ -9,12 +9,7 @@ type MiddleEllipsisProps = {
 	[x: string]: unknown; // Rest of the props
 };
 
-export const Span = ({
-	children = "",
-	ellipsisSymbol,
-	lineLimit,
-	...rest
-}: MiddleEllipsisProps) => {
+export const Span = ({ children = "", ellipsisSymbol, lineLimit, ...rest }: MiddleEllipsisProps) => {
 	const boundingElement = useContext(ContainerContext);
 	const nodeRef = useRef(null);
 

@@ -1,19 +1,11 @@
-import React, {
-	type ReactNode,
-	createContext,
-	useEffect,
-	useRef,
-	useState,
-} from "react";
+import React, { type ReactNode, createContext, useEffect, useRef, useState } from "react";
 
 type MultiEllipsisContainerProps = {
 	children: Iterable<ReactNode>;
 	[x: string]: unknown;
 };
 
-export const ContainerContext = createContext<HTMLElement | undefined>(
-	undefined,
-);
+export const ContainerContext = createContext<HTMLElement | undefined>(undefined);
 
 export const Div = ({
 	children, // Array of elements to be wrapped

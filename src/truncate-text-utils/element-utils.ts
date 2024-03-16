@@ -7,17 +7,11 @@ export const getElementProperties = (targetElement: Element) => {
 	- For multiple word font family name, it returns with quotes.
 		- Example: "Times New Roman", "Courier New", etc
 	*/
-	if (fontFamily[0] === '"' || fontFamily[0] === "'")
-		fontFamily = fontFamily.slice(1, -1);
+	if (fontFamily[0] === '"' || fontFamily[0] === "'") fontFamily = fontFamily.slice(1, -1);
 
-	const marginXWidth =
-		Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
-	const borderXWidth =
-		Number.parseFloat(style.borderLeftWidth) +
-		Number.parseFloat(style.borderRightWidth);
-	const paddingXWidth =
-		Number.parseFloat(style.paddingLeft) +
-		Number.parseFloat(style.paddingRight);
+	const marginXWidth = Number.parseFloat(style.marginLeft) + Number.parseFloat(style.marginRight);
+	const borderXWidth = Number.parseFloat(style.borderLeftWidth) + Number.parseFloat(style.borderRightWidth);
+	const paddingXWidth = Number.parseFloat(style.paddingLeft) + Number.parseFloat(style.paddingRight);
 
 	const width = Number.parseFloat(style.width);
 	const totalWidth = width + marginXWidth;
@@ -40,8 +34,7 @@ export const getSiblingWidth = (targetElement: Element): number => {
 
 	for (const child of targetElement.parentNode.children) {
 		if (child === targetElement) {
-			const { paddingXWidth, borderXWidth } =
-				getElementProperties(targetElement);
+			const { paddingXWidth, borderXWidth } = getElementProperties(targetElement);
 			width += paddingXWidth + borderXWidth;
 		} else {
 			width += getElementProperties(child).totalWidth;
@@ -71,18 +64,14 @@ export const getAvailableWidth = (targetElement: HTMLElement) => {
 /*
   This function assumes that all children element sharing will get equal width.
 */
-export const getAvailableWidthWhenSharing = (
-	targetElement: HTMLElement,
-	boundingElement: HTMLElement,
-) => {
+export const getAvailableWidthWhenSharing = (targetElement: HTMLElement, boundingElement: HTMLElement) => {
 	const containerAvailableWidth = getAvailableWidth(boundingElement);
 
 	let takenWidth = 0;
 	let tempElement = targetElement;
 
 	while (tempElement !== boundingElement) {
-		const { paddingXWidth, borderXWidth, marginXWidth } =
-			getElementProperties(tempElement);
+		const { paddingXWidth, borderXWidth, marginXWidth } = getElementProperties(tempElement);
 		const w = paddingXWidth + borderXWidth + marginXWidth;
 
 		takenWidth += w;
@@ -91,8 +80,7 @@ export const getAvailableWidthWhenSharing = (
 		tempElement = tempElement.parentElement;
 	}
 
-	const availableWidth =
-		containerAvailableWidth / boundingElement.childElementCount - takenWidth;
+	const availableWidth = containerAvailableWidth / boundingElement.childElementCount - takenWidth;
 
 	return availableWidth;
 };
