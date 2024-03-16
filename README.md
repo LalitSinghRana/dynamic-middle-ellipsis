@@ -2,6 +2,8 @@
 
 Framework agnostic code to dynamically truncate long text in the center. Component wrappers provided for all frameworks.
 
+[Live Demo website](https://dynamic-middle-ellipsis.vercel.app/)
+
 ![Demo gif](https://github.com/LalitSinghRana/dynamic-middle-ellipsis/assets/31415645/d0f97746-1129-44f0-8cbe-c5c10f477dd6)
 
 ---
