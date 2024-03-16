@@ -1,4 +1,4 @@
-import { FontFamilyMap } from "./generate-font-width-mapping";
+import type { FontFamilyMap } from "./generate-font-width-mapping";
 
 /*
 These sizes are calculated for font-size 16px.

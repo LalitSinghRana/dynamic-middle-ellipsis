@@ -1,9 +1,9 @@
-import { getStringWidth, getCharacterWidth } from "./string-utils";
 import {
 	getAvailableWidth,
 	getAvailableWidthWhenSharing,
 	getElementProperties,
 } from "./element-utils";
+import { getCharacterWidth, getStringWidth } from "./string-utils";
 
 type ElementOptions = {
 	boundingElement?: HTMLElement;

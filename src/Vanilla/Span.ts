@@ -10,7 +10,7 @@ const spanTemplate = `
 `;
 
 export class Span extends HTMLElement {
-	#cleanup: () => void;
+	#cleanup: () => void = () => {};
 
 	constructor() {
 		super();
