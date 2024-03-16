@@ -9,3 +9,5 @@ A framework/library agnostic code to dynamically truncate long text in the cente
  - Efficient use of space: It does not over or under truncate.
  - Handle all edge cases, like parent width is dependent on child (circular dependency).
  - Not a package dependency: You don't install this as a package, but rather get the code/logic. Giving you full control over code to modify (if needed) for your unique use case.
+
+![ezgif-1-b9e3d3d74d](https://github.com/LalitSinghRana/dynamic-middle-ellipsis/assets/31415645/52340e14-4928-4994-8d66-f491a51913de)
