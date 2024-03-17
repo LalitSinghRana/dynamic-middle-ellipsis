@@ -4,9 +4,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/LalitSinghRana/dynamic-middle-ellipsis)](https://github.com/LalitSinghRana/dynamic-middle-ellipsis.git)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fdynamic-middle-ellipsis.vercel.app%2F)](https://dynamic-middle-ellipsis.vercel.app/)
 
-
 Framework agnostic code to dynamically truncate long text in the middle. 
-
 
 Component wrappers provided for:
   - React (TS/JS)
@@ -14,7 +12,7 @@ Component wrappers provided for:
   - Svelte (TS/JS) - In progress
   - Solid (TS/JS) - In progress
 
-[Live Demo website](https://dynamic-middle-ellipsis.vercel.app/)
+[Live demo website](https://dynamic-middle-ellipsis.vercel.app/)
 
 ![Demo gif](https://github.com/LalitSinghRana/dynamic-middle-ellipsis/assets/31415645/d0f97746-1129-44f0-8cbe-c5c10f477dd6)
 
@@ -61,6 +59,8 @@ Follow the CLI instructions to get the code for your choice of framework and lan
 
 ### How to use:
 
+###### Simple usage:
+
 React:
 ```jsx
 import MiddleEllipsis from "@/components/MiddleEllipsis";
@@ -83,9 +83,7 @@ Vanilla:
 </middle-ellipsis-span>
 ```
 
-
-
-For multiple truncating elements sharing same space:
+###### For multiple truncating elements sharing same space:
 
 React:
 ```jsx
