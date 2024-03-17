@@ -12,7 +12,7 @@ Framework agnostic code to dynamically truncate long text in the center. Compone
 - **Dynamic**: Automatically truncate on element resize.
 - **Efficient** (use of space): It does not over or under truncate.
 - **Custom ellipsis string**: Can pass any ellipsis string.
-- :zap: **Fast**:
+:zap: **Fast**:
     - Calculating available width is O(h) operation, 
         - where "h" is height of DOM sub-tree from offset-parent to target node.
         - In most cases, this will be a constant O(1) operation.
