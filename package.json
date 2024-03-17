@@ -2,7 +2,7 @@
 	"author": "Lalit Rana",
 	"license": "MIT",
 	"name": "@lalit-rana/dynamic-middle-ellipsis",
-	"version": "1.0.5",
+	"version": "1.1.0",
 	"description": "Provides components and helper function to dynamically ellipsis(truncate) text in middle",
 	"type": "module",
 	"bin": "./bin.js",
