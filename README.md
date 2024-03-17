@@ -5,7 +5,7 @@
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fdynamic-middle-ellipsis.vercel.app%2F)](https://dynamic-middle-ellipsis.vercel.app/)
 
 
-Framework agnostic code to dynamically truncate long text in the center. 
+Framework agnostic code to dynamically truncate long text in the middle. 
 
 
 Component wrappers provided for:
