@@ -1,6 +1,13 @@
 # Dynamic Middle Ellipsis
 
-Framework agnostic code to dynamically truncate long text in the center. Component wrappers provided for all frameworks.
+Framework agnostic code to dynamically truncate long text in the center. 
+
+
+Component wrappers provided for:
+  - React (TS/JS)
+  - Vanilla (TS/JS)
+  - Svelte (TS/JS) - In progress
+  - Solid (TS/JS) - In progress
 
 [Live Demo website](https://dynamic-middle-ellipsis.vercel.app/)
 
@@ -9,27 +16,27 @@ Framework agnostic code to dynamically truncate long text in the center. Compone
 ---
 ### Features:
 
-- **Dynamic**: Automatically truncate on element resize.
-- **Efficient** (use of space): It does not over or under truncate.
-- **Custom ellipsis string**: Can pass any ellipsis string.
-:zap: **Fast**:
-    - Calculating available width is O(h) operation, 
-        - where "h" is height of DOM sub-tree from offset-parent to target node.
-        - In most cases, this will be a constant O(1) operation.
-    - Font character width are calculated at build time and cached in advance. 
-        - So we don't have to do this calculation at run time.
-    - All calculations and updating DOM element happens in JS land.
-        - So that it'll not cause unnecessary re-renders and slow down your webapp.
-- **Handle all edge cases**, e.g.:
+- :ocean: **Dynamic**: Automatically truncate on element resize.
+- :dart: **Precise**: Use of space,  it does not over or under truncate.
+- :gear: **Custom ellipsis string**: Can pass any ellipsis string.
+- :zap: **Fast**:
+  - Calculating available width is O(h) operation, 
+      - where "h" is height of DOM sub-tree from offset-parent to target node.
+      - In most cases, this will be a constant O(1) operation.
+  - Font character width are calculated at build time and cached in advance. 
+      - So we don't have to do this calculation at run time.
+  - All calculations and updating DOM element happens in JS land.
+      - So that it'll not cause unnecessary re-renders and slow down your webapp.
+- :white_check_mark: **Handle all edge cases**, e.g.:
   - Parent width is dependent on child (circular dependency).
   - Can handle different font families, sizes and mixed-cases.
   - Wrap to multiple lines before truncating.
   - Truncating text share space with other fixed size elements.
   - Multiple separate truncating element share same space.
   - Accounts for padding and margin on parent element
-- **Not a dependency** in your project: You don't install this as a package, but rather get the code/logic. Giving you full control over code to modify (if needed) for your unique use case.
-- **Full control**: You get access to full code, so that you can modify it according to your project's need.
-- **Component wrappers** available in:
+- :no_entry: **Not a dependency**: In your project, you don't install this as a package dependency. But rather get the code/logic.
+- :control_knobs: **Full control**: You get access to full code, so that you can modify it according to your project's need.
+- :package: **Component wrappers** available in:
   - React (TS/JS)
   - Vanilla (TS/JS)
 

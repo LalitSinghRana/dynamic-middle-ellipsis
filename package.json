@@ -2,7 +2,7 @@
 	"author": "Lalit Rana",
 	"license": "MIT",
 	"name": "@lalit-rana/dynamic-middle-ellipsis",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Provides components and helper function to dynamically ellipsis(truncate) text in middle",
 	"type": "module",
 	"bin": "./bin.js",
@@ -22,7 +22,13 @@
 		"abbreviate",
 		"abbr",
 		"clip",
-		"dynamic"
+		"dynamic",
+		"react",
+		"vanilla",
+		"web",
+		"component",
+		"typescript",
+		"javascript"
 	],
 	"devDependencies": {
 		"@babel/cli": "^7.23.9",
