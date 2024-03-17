@@ -4,7 +4,7 @@ import type { FontFamilyMap } from "./generate-font-width-mapping";
 These sizes are calculated for font-size 16px.
 */
 export const fontFamilyMap: FontFamilyMap = {
-	'"Times New Roman"': {
+	"Times New Roman": {
 		"0": 8,
 		"1": 7.703125,
 		"2": 8,
@@ -592,7 +592,7 @@ export const fontFamilyMap: FontFamilyMap = {
 		"~": 9.34375,
 		"": 8,
 	},
-	'"Apple Color Emoji"': {
+	"Apple Color Emoji": {
 		"0": 8,
 		"1": 7.703125,
 		"2": 8,
@@ -690,7 +690,7 @@ export const fontFamilyMap: FontFamilyMap = {
 		"~": 8.65625,
 		"": 8,
 	},
-	'"Segoe UI Emoji"': {
+	"Segoe UI Emoji": {
 		"0": 8.625,
 		"1": 8.625,
 		"2": 8.625,
@@ -788,7 +788,7 @@ export const fontFamilyMap: FontFamilyMap = {
 		"~": 10.9453125,
 		"": 8,
 	},
-	'"Segoe UI Symbol"': {
+	"Segoe UI Symbol": {
 		"0": 8.625,
 		"1": 8.625,
 		"2": 8.625,
@@ -886,7 +886,7 @@ export const fontFamilyMap: FontFamilyMap = {
 		"~": 10.9453125,
 		"": 8,
 	},
-	'"Noto Color Emoji"': {
+	"Noto Color Emoji": {
 		"0": 8,
 		"1": 7.703125,
 		"2": 8,

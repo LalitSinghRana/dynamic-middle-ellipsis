@@ -31,7 +31,7 @@ const generateCharacterWidthMapping = (fontFamily: string) => {
 	return fontWidthMapping;
 };
 
-export const generateFontWidthMapping = () => {
+const generateFontWidthMapping = () => {
 	const fontFamilies = new Set<string>();
 
 	for (const element of document.querySelectorAll("*")) {
@@ -52,3 +52,5 @@ export const generateFontWidthMapping = () => {
 
 	return fontsMap;
 };
+
+generateFontWidthMapping();
