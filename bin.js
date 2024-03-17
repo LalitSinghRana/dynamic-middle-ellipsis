@@ -6,7 +6,7 @@ import download from "download";
 import inquirer from "inquirer";
 import { createSpinner } from "nanospinner";
 
-const packageName = "@lalit-rana/middle-ellipsis-react";
+const packageName = "@lalit-rana/dynamic-middle-ellipsis";
 
 const getFiles = async ({ language, framework }) => {
 	const spinner = createSpinner("Downloading...:   ");
