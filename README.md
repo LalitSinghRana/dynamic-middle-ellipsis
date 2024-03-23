@@ -30,7 +30,7 @@ Component wrappers provided for:
       - So we don't have to do this calculation at run time.
   - All calculations and updating DOM element happens in JS land.
       - So that it'll not cause unnecessary re-renders and slow down your webapp.
-- :white_check_mark: **Handle all edge cases**, e.g.:
+- :white_check_mark: **Handle all use cases**, e.g.:
   - Parent width is dependent on child (circular dependency).
   - Can handle different font families, sizes and mixed-cases.
   - Wrap to multiple lines before truncating.
