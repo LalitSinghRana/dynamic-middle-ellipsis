@@ -6,7 +6,12 @@
 	"description": "Components and helper functions code to dynamically ellipsis(truncate) text in the middle",
 	"type": "module",
 	"bin": "./bin.js",
-	"files": ["JavaScript/", "TypeScript/", "bin.js", "README.md"],
+	"files": [
+		"JavaScript/",
+		"TypeScript/",
+		"bin.js",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/LalitSinghRana/dynamic-middle-ellipsis.git"
@@ -45,5 +50,10 @@
 		"download": "^8.0.0",
 		"inquirer": "^9.2.15",
 		"nanospinner": "^1.1.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome"
+		]
 	}
 }
