@@ -2,7 +2,7 @@
 	"author": "Lalit Rana",
 	"license": "MIT",
 	"name": "@lalit-rana/dynamic-middle-ellipsis",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"description": "Components and helper functions code to dynamically ellipsis(truncate) text in the middle",
 	"type": "module",
 	"bin": "./bin.js",
@@ -12,11 +12,6 @@
 		"bin.js",
 		"README.md"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/LalitSinghRana/dynamic-middle-ellipsis.git"
-	},
-	"homepage": "https://dynamic-middle-ellipsis.vercel.app/",
 	"keywords": [
 		"text",
 		"ellipsis",
