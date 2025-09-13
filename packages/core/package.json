@@ -1,0 +1,54 @@
+{
+	"name": "@dynamic-middle-ellipsis/core",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "Framework-agnostic text truncation with middle ellipsis - core utilities",
+	"author": "Lalit Rana",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LalitSinghRana/dynamic-middle-ellipsis.git",
+		"directory": "packages/core"
+	},
+	"bugs": {
+		"url": "https://github.com/LalitSinghRana/dynamic-middle-ellipsis/issues"
+	},
+	"homepage": "https://github.com/LalitSinghRana/dynamic-middle-ellipsis/tree/main/packages/core#readme",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"dist/",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsc",
+		"clean": "rm -rf dist",
+		"prepublishOnly": "pnpm clean && pnpm build && npm pack --dry-run"
+	},
+	"keywords": [
+		"text",
+		"ellipsis",
+		"truncate",
+		"middle",
+		"center",
+		"text-overflow",
+		"typescript",
+		"framework-agnostic"
+	],
+	"devDependencies": {
+		"typescript": "^5.9.2"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

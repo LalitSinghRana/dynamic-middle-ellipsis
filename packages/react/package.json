@@ -1,0 +1,63 @@
+{
+	"name": "@dynamic-middle-ellipsis/react",
+	"version": "1.0.0",
+	"type": "module",
+	"description": "React components for dynamic text truncation with middle ellipsis",
+	"author": "Lalit Rana",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LalitSinghRana/dynamic-middle-ellipsis.git",
+		"directory": "packages/react"
+	},
+	"bugs": {
+		"url": "https://github.com/LalitSinghRana/dynamic-middle-ellipsis/issues"
+	},
+	"homepage": "https://github.com/LalitSinghRana/dynamic-middle-ellipsis/tree/main/packages/react#readme",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": [
+		"dist/",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsc",
+		"clean": "rm -rf dist",
+		"prepublishOnly": "pnpm clean && pnpm build && npm pack --dry-run"
+	},
+	"keywords": [
+		"text",
+		"ellipsis",
+		"truncate",
+		"middle",
+		"center",
+		"text-overflow",
+		"component",
+		"typescript",
+		"react"
+	],
+	"peerDependencies": {
+		"react": ">=16.8.0"
+	},
+	"dependencies": {
+		"@dynamic-middle-ellipsis/core": "^1.0.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.24",
+		"react": "^18.3.1",
+		"typescript": "^5.9.2"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

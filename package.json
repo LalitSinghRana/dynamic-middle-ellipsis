@@ -1,0 +1,24 @@
+{
+	"name": "dynamic-middle-ellipsis-monorepo",
+	"version": "0.9.1",
+	"private": true,
+	"description": "Dynamic text truncation with middle ellipsis for multiple frameworks",
+	"author": "Lalit Rana",
+	"license": "MIT",
+	"scripts": {
+		"build": "pnpm -r --filter \"./packages/*\" build",
+		"check": "biome check . --write",
+		"dev": "pnpm --filter \"./websites/*\" dev"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.0.6"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome"
+		]
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	}
+}

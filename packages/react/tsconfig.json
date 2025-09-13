@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"noImplicitAny": false,
+		"strictNullChecks": true,
+		"declaration": true,
+		"outDir": "dist",
+		"rootDir": "src",
+		"skipLibCheck": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
+}
