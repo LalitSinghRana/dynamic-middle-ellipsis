@@ -1,6 +1,6 @@
 {
 	"name": "@dynamic-middle-ellipsis/react",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"type": "module",
 	"description": "React components for dynamic text truncation with middle ellipsis",
 	"author": "Lalit Rana",
@@ -47,12 +47,12 @@
 		"react": ">=16.8.0"
 	},
 	"dependencies": {
-		"@dynamic-middle-ellipsis/core": "^1.0.0"
+		"@dynamic-middle-ellipsis/core": "1.0.2"
 	},
 	"devDependencies": {
-		"@types/react": "^18.3.24",
-		"react": "^18.3.1",
-		"typescript": "^5.9.2"
+		"@types/react": "18.3.24",
+		"react": "18.3.1",
+		"typescript": "5.9.2"
 	},
 	"engines": {
 		"node": ">=16.0.0"
