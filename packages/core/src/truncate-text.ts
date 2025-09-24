@@ -57,13 +57,13 @@ const truncateText = ({
 		firstHalf += originalText[i];
 
 		remainingWidth -= getCharacterWidth(
-			originalText.at(i - 1) as string,
+			originalText[originalTextLength - i - 1],
 			fontFamily,
 			fontSize,
 		);
 
 		if (remainingWidth < 0) break;
-		secondHalf = originalText.at(i - 1) + secondHalf;
+		secondHalf = originalText[originalTextLength - i - 1] + secondHalf;
 	}
 
 	return firstHalf + ellipsisSymbol + secondHalf;
