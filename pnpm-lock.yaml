@@ -15,90 +15,90 @@ importers:
   packages/core:
     devDependencies:
       typescript:
-        specifier: ^5.9.2
+        specifier: 5.9.2
         version: 5.9.2
 
   packages/react:
     dependencies:
       '@dynamic-middle-ellipsis/core':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: 1.0.2
+        version: 1.0.2
     devDependencies:
       '@types/react':
-        specifier: ^18.3.24
+        specifier: 18.3.24
         version: 18.3.24
       react:
-        specifier: ^18.3.1
+        specifier: 18.3.1
         version: 18.3.1
       typescript:
-        specifier: ^5.9.2
+        specifier: 5.9.2
         version: 5.9.2
 
   websites/react:
     dependencies:
       '@dynamic-middle-ellipsis/react':
-        specifier: ^1.0.0
-        version: 1.0.0(react@18.3.1)
+        specifier: 1.0.1
+        version: 1.0.1(react@18.3.1)
       '@radix-ui/react-separator':
-        specifier: ^1.1.7
+        specifier: 1.1.7
         version: 1.1.7(@types/react-dom@18.3.7(@types/react@18.3.24))(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
-        specifier: ^1.2.3
+        specifier: 1.2.3
         version: 1.2.3(@types/react@18.3.24)(react@18.3.1)
       class-variance-authority:
-        specifier: ^0.7.1
+        specifier: 0.7.1
         version: 0.7.1
       clsx:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1
       lucide-react:
-        specifier: ^0.340.0
+        specifier: 0.340.0
         version: 0.340.0(react@18.3.1)
       next:
         specifier: 14.1.0
         version: 14.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes:
-        specifier: ^0.2.1
+        specifier: 0.2.1
         version: 0.2.1(next@14.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: 18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-resizable-panels:
-        specifier: ^2.1.9
+        specifier: 2.1.9
         version: 2.1.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
-        specifier: ^2.6.0
+        specifier: 2.6.0
         version: 2.6.0
       tailwindcss-animate:
-        specifier: ^1.0.7
+        specifier: 1.0.7
         version: 1.0.7(tailwindcss@3.4.17)
     devDependencies:
       '@biomejs/biome':
         specifier: 2.0.6
         version: 2.0.6
       '@types/node':
-        specifier: ^20.19.14
+        specifier: 20.19.14
         version: 20.19.14
       '@types/react':
-        specifier: ^18.3.24
+        specifier: 18.3.24
         version: 18.3.24
       '@types/react-dom':
-        specifier: ^18.3.7
+        specifier: 18.3.7
         version: 18.3.7(@types/react@18.3.24)
       autoprefixer:
-        specifier: ^10.4.21
+        specifier: 10.4.21
         version: 10.4.21(postcss@8.5.6)
       postcss:
-        specifier: ^8.5.6
+        specifier: 8.5.6
         version: 8.5.6
       tailwindcss:
-        specifier: ^3.4.17
+        specifier: 3.4.17
         version: 3.4.17
       typescript:
-        specifier: ^5.9.2
+        specifier: 5.9.2
         version: 5.9.2
 
 packages:
@@ -160,12 +160,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@dynamic-middle-ellipsis/core@1.0.0':
-    resolution: {integrity: sha512-kNMlxJHRMG0pVfi7MLMMzJZHGD+FXdOnnNbOsTu//h8mZH6CMDB4CiAGTFlIZCSOH6QOzBe+hUNMb689p5ttJQ==}
+  '@dynamic-middle-ellipsis/core@1.0.2':
+    resolution: {integrity: sha512-vMIQaKvojcKAAwSfHyE+aR2wVyo4UMP61Z34HQw+FyrENWi4Tf+Xyl2DBtP/76RVsbgLjtCJmkiA/+yZxaraAQ==}
     engines: {node: '>=16.0.0'}
 
-  '@dynamic-middle-ellipsis/react@1.0.0':
-    resolution: {integrity: sha512-twU9FNwChacQTnyVg+AdwD/ZmV27t3hQJmL4+xZjBy4iwkjQE9WUE9iyKX9JWP/QYAENPMcqMxkFpORamWNCkA==}
+  '@dynamic-middle-ellipsis/react@1.0.1':
+    resolution: {integrity: sha512-q5Wj7TjPNBLQqUXwOQJDwauzklWo6UP2cyqU0JeNQkGNfXE5hXWIfaFi7ckiaNFg2R2Sr+XvA9W4Ioj0TWbiLg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       react: '>=16.8.0'
@@ -889,11 +889,11 @@ snapshots:
   '@biomejs/cli-win32-x64@2.0.6':
     optional: true
 
-  '@dynamic-middle-ellipsis/core@1.0.0': {}
+  '@dynamic-middle-ellipsis/core@1.0.2': {}
 
-  '@dynamic-middle-ellipsis/react@1.0.0(react@18.3.1)':
+  '@dynamic-middle-ellipsis/react@1.0.1(react@18.3.1)':
     dependencies:
-      '@dynamic-middle-ellipsis/core': 1.0.0
+      '@dynamic-middle-ellipsis/core': 1.0.2
       react: 18.3.1
 
   '@isaacs/cliui@8.0.2':
