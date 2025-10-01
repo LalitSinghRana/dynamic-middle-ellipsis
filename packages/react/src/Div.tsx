@@ -31,9 +31,13 @@ export const Div = ({
 
 	return (
 		<ContainerContext.Provider value={boundingElement}>
-			<span ref={containerRef} style={{ width: "100%" }} {...rest}>
+			<div
+				{...rest}
+				ref={containerRef}
+				style={{ ...(rest?.style || {}), width: "100%" }}
+			>
 				{children}
-			</span>
+			</div>
 		</ContainerContext.Provider>
 	);
 };
