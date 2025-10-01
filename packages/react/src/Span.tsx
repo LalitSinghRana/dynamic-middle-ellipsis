@@ -39,7 +39,13 @@ export const Span = ({
 	}, [children, ellipsisSymbol, boundingElement, lineLimit]);
 
 	return (
-		<span ref={nodeRef} {...rest} style={{ wordBreak: "break-all" }}>
+		// biome-ignore lint/a11y/useAriaPropsSupportedByRole: we need to use aria-label for accessibility
+		<span
+			ref={nodeRef}
+			{...rest}
+			style={{ wordBreak: "break-all" }}
+			aria-label={children}
+		>
 			{"\u00A0"}
 		</span>
 	);
