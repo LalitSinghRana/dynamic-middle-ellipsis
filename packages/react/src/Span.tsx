@@ -41,10 +41,10 @@ export const Span = ({
 	return (
 		// biome-ignore lint/a11y/useAriaPropsSupportedByRole: we need to use aria-label for accessibility
 		<span
-			ref={nodeRef}
-			{...rest}
-			style={{ wordBreak: "break-all" }}
 			aria-label={children}
+			{...rest}
+			ref={nodeRef}
+			style={{ ...(rest?.style || {}), wordBreak: "break-all" }}
 		>
 			{"\u00A0"}
 		</span>
