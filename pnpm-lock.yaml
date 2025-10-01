@@ -37,8 +37,8 @@ importers:
   websites/react:
     dependencies:
       '@dynamic-middle-ellipsis/react':
-        specifier: 1.0.1
-        version: 1.0.1(react@18.3.1)
+        specifier: 1.0.2
+        version: 1.0.2(react@18.3.1)
       '@radix-ui/react-separator':
         specifier: 1.1.7
         version: 1.1.7(@types/react-dom@18.3.7(@types/react@18.3.24))(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -164,8 +164,8 @@ packages:
     resolution: {integrity: sha512-vMIQaKvojcKAAwSfHyE+aR2wVyo4UMP61Z34HQw+FyrENWi4Tf+Xyl2DBtP/76RVsbgLjtCJmkiA/+yZxaraAQ==}
     engines: {node: '>=16.0.0'}
 
-  '@dynamic-middle-ellipsis/react@1.0.1':
-    resolution: {integrity: sha512-q5Wj7TjPNBLQqUXwOQJDwauzklWo6UP2cyqU0JeNQkGNfXE5hXWIfaFi7ckiaNFg2R2Sr+XvA9W4Ioj0TWbiLg==}
+  '@dynamic-middle-ellipsis/react@1.0.2':
+    resolution: {integrity: sha512-KSA5bzEGhyjsGF3Rpw522W0wko4a4xvLxt/Ol5QXDSgu09KfzwQ+aTM0lOAzHdYzYFHE6HWbyCdq+clpXXjMVg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       react: '>=16.8.0'
@@ -891,7 +891,7 @@ snapshots:
 
   '@dynamic-middle-ellipsis/core@1.0.2': {}
 
-  '@dynamic-middle-ellipsis/react@1.0.1(react@18.3.1)':
+  '@dynamic-middle-ellipsis/react@1.0.2(react@18.3.1)':
     dependencies:
       '@dynamic-middle-ellipsis/core': 1.0.2
       react: 18.3.1
